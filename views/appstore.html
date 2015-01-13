@@ -1,0 +1,65 @@
+<style type="text/css">
+	.appStoreTable {
+		width: 100%;
+	}
+	th {
+	    background: none repeat scroll 0 0 #CAE8EA;
+	    border-bottom: 1px solid #C1DAD7;
+	    border-right: 1px solid #C1DAD7;
+	    border-top: 1px solid #C1DAD7;
+	    color: #4F6B72;
+	    letter-spacing: 2px;
+	    padding: 6px 6px 6px 12px;
+	    text-align: left;
+	    text-transform: uppercase;
+	}
+	th.title {
+		width: 200px
+	}
+	th.author {
+		width: 80px;
+	}
+	th.operation {
+		width: 45px
+	}
+	td {
+		background: none repeat scroll 0 0 #FFFFFF;
+	    border-bottom: 1px solid #C1DAD7;
+	    border-right: 1px solid #C1DAD7;
+	    color: #4F6B72;
+	    font-size: 11px;
+	    padding: 6px 6px 6px 12px;
+	}
+	td:first-child {
+		border-left: 1px solid #C1DAD7;
+	}
+	tr:nth-child(2n-1) td {
+		background: none repeat scroll 0 0 #F5FAFA;
+	}
+</style>
+<table cellspacing="0" class="appStoreTable">
+	<tr>
+		<th class="title">应用标题</th>
+		<th class="author">作者</th>
+		<th class="desc">简介</th>
+		<th class="operation">操作</th>
+	</tr>
+	<%if (apps.length <= 0) {%>
+	<tr class="storeEmptyTips"><td colspan="4"><%=lang('app.store.empty')%></td></tr>
+	<%} else {
+		for(var i = 0; i < apps.length; i++) {
+			var app = apps[i];
+	%>
+			<tr>
+				<td><%=app.title%></td>
+				<td><%=app.author.name%></td>
+				<td><%=app.desc !== ''  ? app.desc : lang('app.desc.none')%></td>
+				<%if (userApps.indexOf(app._id.toString()) >= 0) {%>
+					<td><a class="run" href="javascript:;" appid="<%=app._id%>" title="<%=app.title%>" url="<%=app.url%>" desc="<%=app.desc%>"><%=lang('app.run')%></a></td>
+				<%} else {%>
+					<td><a class="setup" href="javascript:;" appid="<%=app._id%>"><%=lang('app.setup')%></a></td>
+				<%}%>
+			</tr>
+		<%}%>
+	<%}%>
+</table>

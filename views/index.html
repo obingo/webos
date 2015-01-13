@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=1024">
+	<title><%=lang('site.title')%></title>
+	<link type="text/css" rel="stylesheet" href="themes/jqueryui/all.css">
+	<link type="text/css" rel="stylesheet" href="themes/base/index.css">
+	<script type="text/javascript">window.bingos = window.bingos || {}; bingos.uid = '<%=uid%>';</script>
+</head>
+<body>
+	<div id="loaderContainer">
+		<div id="loader">
+			<noscript><%=lang('site.nojs')%></noscript>
+		</div>
+	</div>
+	<div class="topbar shadow">
+		<div class="topLeft">
+			<span id="welcomeTips"><%=lang('site.welcome')%><em><%=username%></em></span>
+		</div>
+		<div class="topRight">
+			<ul class="menu clearfix">
+				<li>
+					<div class="searchBar">
+						<input id="searchKey" name="searchKey" type="text" value="<%=lang('app.search')%>"/>
+						<input id="searchBtn" type="button"/>
+						<div id="searchSuggest">
+							<div id="localApp">
+								<h1 class="appListTitle"><%=lang('app.search.myapp')%>"<span class="key"></span>":</h1>
+								<ul class="appList"></ul>
+							</div>
+							<hr/>
+							<div id="storeApp">
+								<h1 class="appListTitle"><%=lang('app.search.storeapp')%>"<span class="key"></span>":</h1>
+								<ul class="appList"></ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>|</li>
+				<li id="runningAppMenu">
+					<a href="javascript:;">
+						<%=lang('app.running')%>(<span id="runningAppNum">0</span>)
+						<span class="more"></span>
+					</a>
+					<ul id="runningApp" class="appList"></ul>
+				</li>
+				<li id="myAppMenu">
+					<a href="javascript:;">
+						<%=lang('app.myapp')%>(<span id="myAppNum">0</span>)
+						<span class="more"></span>
+					</a>
+					<div id="myAppOuter">
+						<a id="addApp" href="javascript:;"><%=lang('app.add')%></a>
+						<ul id="myApp" class="appList"></ul>
+					</div>
+				</li>
+				<li>|</li>
+				<li id="appStoreMenu"><a href="javascript:;"><%=lang('app.store')%></a></li>
+				<!--<li id="themesMenu">
+					<a href="javascript:;"><%=lang('sys.themes')%></a>
+				</li>
+				<li id="settingsMenu"><a href="javascript:;"><%=lang('sys.settings')%></a></li>-->
+				<li id="accountMenu">
+					<a href="javascript:;">
+						<%=lang('user.account')%>
+						<span class="more"></span>
+					</a>
+					<div id="accountPane">
+						<p>用户名：<span name="username"></span></p>
+						<p>应用数量：<span name="appnum"></span></p>
+						<p>注册时间：<br/><span name="create_at"></span></p>
+						<p>上次登录时间：<br/><span name="login_at"></span></p>
+					</div>
+				</li>
+				<li><a href="/signout"><%=lang('user.signout')%></a></li>
+				<li>|</li>
+			</ul>
+		</div>
+	</div>
+	<div id="desktop"></div>
+	<div id="appDlg">
+		<p class="validateTips"></p>
+		<form id="appForm">
+		<fieldset>
+			<input type="hidden" name="appid" />
+			<label><%=lang('app.title')%></label>
+			<input type="text" name="title" value="" class="text ui-widget-content ui-corner-all" />
+			<label><%=lang('app.url')%></label>
+			<input type="text" name="url" value="http://" class="text ui-widget-content ui-corner-all" />
+			<label><%=lang('app.desc')%></label>
+			<textarea name="desc" class="text ui-widget-content ui-corner-all"></textarea>
+		</fieldset>
+		</form>
+	</div>
+	<div id="appStoreDlg"></div>
+	<script type="text/javascript" src="/libs/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="/libs/jquery-ui-1.8.20.js"></script>
+	<script type="text/javascript" src="/libs/jquery.validate.js"></script>
+	<script type="text/javascript" src="/js/config.js"></script>
+	<script type="text/javascript" src="/js/utils.js"></script>
+	<script type="text/javascript" src="/js/event.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/appmanager.js"></script>
+	<script type="text/javascript" src="/js/search.js"></script>
+	<script type="text/javascript" src="/js/appstore.js"></script>
+	<script type="text/javascript" src="/js/topbar.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

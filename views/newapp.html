@@ -1,0 +1,18 @@
+<div id="addPane">
+	<form action="/app/add" method="post" id="addForm">
+		<div class="field">
+			<span id="addNotice" class="notice"></span>
+		</div>
+		<div class="field">
+			<label><%=lang("app.title")%></label>
+			<input name="title" type="text" maxlength="20">
+		</div>
+		<div class="field">
+			<label><%=lang("app.url")%></label>
+			<input name="url" type="text">
+		</div>
+		<div class="field">
+			<button id="addBtn"><%=lang("app.add")%></button>
+		</div>
+	</form>
+</div>

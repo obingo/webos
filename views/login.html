@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=1024">
+	<title><%=lang('site.title')%> -- <%=lang('user.login')%></title>
+	<link type="text/css" rel="stylesheet" href="themes/base/index.css">
+</head>
+<body>
+	<div id="signContainer">
+		<div id="loginPane">
+			<form action="signin" method="post" id="loginForm">
+				<div class="field clearfix">
+					<h1 class="title"><%=lang("user.login")%></h1>
+					<p id="loginNotice" class="notice"></p>
+				</div>
+				<div class="field">
+					<label><%=lang("user.name")%></label>
+					<input name="username" type="text" maxlength="12">
+				</div>
+				<div class="field">
+					<label><%=lang("user.pwd")%></label>
+					<input name="password" type="password" maxlength="20">
+				</div>
+				<div class="field">
+					<input id="remeberStatus" name="remeber" type="checkbox" checked="checked" value="1">	
+					<label id="remeberStatusLabel" for="remeberStatus"><%=lang("user.remlogin")%></label>
+				</div>
+			<div class="field">
+				<button id="loginBtn"><%=lang("user.login")%></button>
+			</div>
+			</form>
+			<div class="changePane">
+				<button id="changeReg"><%=lang("user.signup.now")%></button>
+			</div>
+		</div>
+		<div id="regPane">
+			<form action="signup" method="post" id="regForm">
+				<div class="field clearfix">
+					<h1 class="title"><%=lang("user.signup")%></h1>
+					<p id="regNotice" class="notice"></p>
+				</div>
+				<div class="field">
+					<label><%=lang("user.name")%></label>
+					<input name="username" type="text" maxlength="12">
+				</div>
+				<div class="field">
+					<label><%=lang("user.pwd")%></label>
+					<input id="regPwd" name="password" type="password" maxlength="20">
+				</div>
+				<div class="field">
+					<label><%=lang("user.repwd")%></label>
+					<input name="repassword" type="password" maxlength="20">
+				</div>
+			<div class="field">
+				<button id="regBtn"><%=lang("user.signup.now")%></button>
+			</div>
+			</form>
+			<div class="changePane">
+				<button id="changeLogin"><%=lang("user.gotologin")%></button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="/libs/jquery.validate.js"></script>
+	<script type="text/javascript" src="/js/config.js"></script>
+	<script type="text/javascript" src="/js/sign.js"></script>
+</body>
+</html>
